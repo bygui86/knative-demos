@@ -1,12 +1,12 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Route
 metadata:
-  name: blue-green # Updating our existing route
-  namespace: demo
+  name: bg # Route name is unchanged, since we're updating an existing Route
+  namespace: next
 spec:
   traffic:
-  - revisionName: blue-green-00001
-    percent: 50 # Updating the percentage from 100 to 50
-  - revisionName: blue-green-00002
-    percent: 50 # Updating the percentage from 0 to 50
-    name: v2
+  - configurationName: bg1
+    percent: 50 # All traffic still going to the first revision
+  - configurationName: bg2
+    percent: 50 # 0% of traffic routed to the second revision
+    name: v2 # A named route
