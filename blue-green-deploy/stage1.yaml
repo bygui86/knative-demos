@@ -2,7 +2,6 @@ apiVersion: serving.knative.dev/v1alpha1
 kind: Configuration
 metadata:
   name: bg1
-  namespace: next
 spec:
   revisionTemplate:
     spec:
@@ -16,7 +15,6 @@ apiVersion: serving.knative.dev/v1alpha1
 kind: Route
 metadata:
   name: bg # The name of our route; appears in the URL to access the app
-  namespace: next # The namespace we're working in; also appears in the URL to access the app
 spec:
   traffic:
   - configurationName: bg1
